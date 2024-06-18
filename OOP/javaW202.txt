@@ -35,3 +35,8 @@ arrayLisst size()メソッド
 何にも変更しないで使ってください！という意味
 MATHクラスとかで使ってる
 STATIC FINALでオブジェクト作らないでファイナル、すなわち定数で使うことができるものとか、、、
+[ex.]
+public class Test {
+	public static final int MAX_VALUE = 100;
+	public static final String FIXED_NAME = "ちだ";
+}
