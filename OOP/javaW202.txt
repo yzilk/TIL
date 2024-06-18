@@ -40,3 +40,13 @@ public class Test {
 	public static final int MAX_VALUE = 100;
 	public static final String FIXED_NAME = "ちだ";
 }
+
+
+*println とかではobjectクラスかintegerクラスとか使って
+なんとかtoString()メソッドで文字列出してくれてたわけ
+
+*equals()メソッド
+これ使うとif(参照型名前＝＝参照型名前)
+の時にハッシュコードの比較になってしまうところを
+if(参照型名前.equals(参照型名前))
+を使うことで中身を参照できるゼ
