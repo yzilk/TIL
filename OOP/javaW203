@@ -1,0 +1,52 @@
+*Java 三大要素
+カプセル化・継承・多態性（ポリモーフィズム）
+
+*import lesson24.a.Phone2401;
+Phone2401 phone = new Phone2401();
+//パッケージが違う場合はインポートを入れる
+
+*lesson24.a.Phone2401 phone = new lesson24.a.Phone2401();
+//import文がない場合は完全修飾名を使用
+
+*「＊」を使用したインポートはできません
+
+*コレクションframework＝いろいろある
+Listインタフェース→ArrayListクラスという構造になっている
+
+*List<型名> 変数名 = new Arraylist<>();
+<>→ジェネリクス：基本型ダメ、ラッパークラスを入れる 下記listは変数名
+int書けないってこと(Stiringはいける)、Integerで入れよう
+List<Integer> list = new ArrayList<>();
+//これ打つときに右のジェネリクス内にIntegerが入るがそれは古いので消して運用
+list.add(1);
+list.get(!);
+
+*インターフェース型の？？
+Map<String, String> map = new HashMap<>();
+右辺は変更可能インターフェース型のmap使用してるので右辺は変更可能（Treemap）
+ハッシュマップへの追加は
+key.put(?,?)で入れる
+key.get("猿")でとりだし
+for (String key : map.keySet()) {
+System.out.println(key); で回す
+
+*thwowableクラス下
+Exeptionクラス　チェック例外→IOEのメインに描くやつ（対応する◎）
+RuntimeExeptionクラス　非チェック例外→ヌルポ→走らせるまでわからんからエラー（対応する場合もあり▲）
+
+エラークラス　エラ→対応しない/できない（非チェック例外×）
+
+*try-catch-finally文
+イメージはtry leaderleadline入れる
+catch ioe入れる
+（ソース→try,catch）
+
+*機能
+対象のコードを選ぶ
+リファクタリング→メソッドの抽出
+
+*throwsエラー処理を前に投げる！　
+
+*throwエラーをカスタマイズできる！
+
+*スタックトレースは自分が編集した所に絞ってみると速い
