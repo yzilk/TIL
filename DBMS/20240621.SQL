@@ -32,7 +32,6 @@ SELECT * FROM employee;
 
 UPDATE emplyee SET delete_frag WHERE emp_id = 3;
 
-
 --表を作成
 CREATE TABLE item 
 (item_id CHAR(4) PRIMARY KEY, 
@@ -94,12 +93,11 @@ SELECT COUNT (*) FROM item;
 SELECT COUNT (sel_price)FROM item;
 
 
-/*★sum
-*/
+--★sum
 SELECT SUM (sel_price) FROM item;
 SELECT AVG (sel_price)  FROM item;
 
---二桁パターン
+--★二桁パターン
 SELECT ROUND(AVG(sel_price),2) FROM item;
 
 
@@ -108,14 +106,13 @@ SELECT *FROM employee;
 UPDATE employee SET emp_pass = '7777' WHERE emp_id = 1;
 commit;
 
-*/★処理が終わったらコミットで確定
+/*★処理が終わったらコミットで確定
 ミスがあればロールバックでの取り消し
-/*
+
 
 ★NULLとの比較は
 IS null　ではない IS NOT NULとして使用
 WHERE句で使用
-
 
 ★WHEREの中で
 LIKE フ　フが入ってる出して！
@@ -124,7 +121,7 @@ LIKE フ　フが入ってる出して！
 ％フ％、フのやつ出して！
 
 
-/*★任意の最大値と最小値を出す
+★任意の最大値と最小値を出す
 */
 SELECT MAX(sel_price), MIN(sel_price) FROM item;
 
@@ -136,5 +133,44 @@ SELECTS category_id, COUNT(*) FROM item GROUP BY category_id;
 SELECT COUNT(*) FROM item GROUP BY category_id;
 SELECT COUNT(*) FROM item ;
 
-★セレクト句には集約キーと集約関数しか書けない
+--★セレクト句には集約キーと集約関数しか書けない
 SELECT MAX (sel_price) item_name FROM item  GROUP BY category_id;
+
+SELECT category_id ,count(category_id ) from item group by category_id;
+--集約した要素に関してぎゅっとするイメージ
+
+--★実行順序
+SELECT pur_price, COUNT(*) FROM item WHERE category_id =1 GROUP BY pur_price
+/* 1 . FROM item WHERE category_id =1
+巨大なデータから件数を少なくするイメージ
+
+2.持ってきたものに対してグループ化を行う
+GROUP BY pur_price
+
+3.最後にselect
+SELECT pur_price, COUNT(*) 
+この後セレクト句の前にどんどん要素が増えてくるイメージ
+例えばwhereで集約関数＝？条件が使えないのでHavingでまた関数を入れる
+*/
+SELECT category_id ,count(*) FROM item GROUP BY category_id HAVING count(*) = 2;
+
+--pur順にしつつ、item_id順に並べる
+SELECT * FROM item ORDER by pur_price DESC ,item_id ASC;
+
+--item_idの順番にして名前を変えながら出力
+SELECT category_id as cate ,item_name as iname , item_id iid FROM item ORDER BY item_id ASC;
+
+--★内部結合はある者同士
+SELECT si.shop_id,si.shop_name,si.item_id ,i.item_name,i.sel_price,si.quantity FROM shop_item si INNER JOIN item i ON si.item_id = i.item_id;
+/*
+SELECT si.shop_id,si.shop_name,si.item_id ,i.item_name,i.sel_price,si.quantity
+
+
+FROM shop_item si
+
+INNER JOIN item i ON si.item_id = i.item_id;
+
+★左外部決豪は左のやつは全部出して右の表でないやつはNULLになるヨ
+左外部結合＝＝左の情報をベースにジョインするヨ
+*/
+
