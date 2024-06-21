@@ -1,0 +1,5 @@
+★値の変更
+
+SELECT *FROM employee;
+UPDATE employee SET emp_pass = '7777' WHERE emp_id = 1;
+commit;
