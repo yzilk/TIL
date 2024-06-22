@@ -1,0 +1,23 @@
+//★Githubの使い方★
+@yzilk ➜ /workspaces/TIL (main) $ git checkout -b add/sql
+//新しいブランチを作成して移動
+Switched to a new branch 'add/sql'
+
+@yzilk ➜ /workspaces/TIL (add/sql) $ git status
+//状態確認、変更確認
+
+@yzilk ➜ /workspaces/TIL (add/sql) $ git add .
+//ステージングエリアに追加 .は全てのファイル
+
+@yzilk ➜ /workspaces/TIL (add/sql) $ git commit -m "✨rename sql  " 
+[add/sql 747b89c] ✨rename sql
+//コミットメッセージ
+
+@yzilk ➜ /workspaces/TIL (add/sql) $ git push origin add/sql
+//リモートリポジトリにプッシュ
+
+@yzilk ➜ /workspaces/TIL (add/sql) $ git checkout main
+//mainブランチに移動
+
+@yzilk ➜ /workspaces/TIL (main) $ git pull
+//リモートリポジトリの変更をローカルリポジトリに取り込む
