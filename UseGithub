@@ -16,6 +16,10 @@ Switched to a new branch 'add/sql'
 @yzilk ➜ /workspaces/TIL (add/sql) $ git push origin add/sql
 //リモートリポジトリにプッシュ
 
+//★プルリクエストの作成★[
+//Githubのリポジトリに移動
+//Pull requestsをクリック
+
 @yzilk ➜ /workspaces/TIL (add/sql) $ git checkout main
 //mainブランチに移動
 
