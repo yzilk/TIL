@@ -16,7 +16,7 @@ DROP USER sssuser CASCADE;
 CREATE USER sssuser IDENTIFIED BY systemsss;
 
 /*★Oracleのデータ型
-数値　NUMBER
+数値 NUMBER
 */
 Create Table テーブル名(
     no NUMBER       --オラクルは整数も少数もNumberを使用
