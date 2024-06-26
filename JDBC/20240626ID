@@ -1,0 +1,47 @@
+//DB残しときます
+CREATE TABLE department (
+  dept_id NUMBER(1) PRIMARY KEY,
+  dept_name VARCHAR2(30 CHAR) NOT NULL
+);
+select * from department;
+
+SELECT * FROM employee WHERE emp_name LIKE '%t%'  inner join department ON employee.dept_id = department.dept_id ;
+SELECT * FROM employee INNER JOIN department ON employee.dept_id = department.dept_id WHERE department.dept_id = 1;
+
+SELECT *FROM employee;
+INNER JOIN department ON employee.dept_id = department.dept_id
+WHERE employee.emp_name LIKE '%t%';
+
+-- 社員テーブルの作成
+CREATE TABLE employee (
+  emp_id NUMBER(4) PRIMARY KEY,
+  emp_name VARCHAR2(30 CHAR) NOT NULL,
+  gender NUMBER(1) NOT NULL,
+  birthday DATE NOT NULL,
+  dept_id NUMBER(1) NOT NULL REFERENCES department(dept_id)
+);
+
+
+-- シーケンスの作成
+CREATE SEQUENCE seq_emp NOCACHE;
+
+CREATE SEQUENCE seq_dep NOCACHE;
+COMMIT;
+
+-- 部署テーブルへのレコード登録
+INSERT INTO department VALUES (1,'営業部');
+INSERT INTO department VALUES (2,'経理部');
+INSERT INTO department VALUES (3,'総務部');
+
+select* from department;
+select seq_dep.nextval from dual;
+UPDATE department SET dept_name = 'momo' WHERE dept_id = 5;
+UPDATE department SET dept_name = ? WHERE dept_id = ?
+
+-- 社員テーブルへのレコード登録
+INSERT INTO employee VALUES (seq_emp.NEXTVAL, '鈴木太郎', 1, '1986/10/12', 1);
+INSERT INTO employee VALUES (seq_emp.NEXTVAL, '田中二郎', 1, '1979/07/02', 2);
+INSERT INTO employee VALUES (seq_emp.NEXTVAL, '渡辺花子', 2, '1988/04/23', 2);
+
+
+COMMIT;
