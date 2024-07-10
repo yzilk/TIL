@@ -1,3 +1,10 @@
+--初期設定
+ALTER SESSION SET CONTAINER = XEPDB1;
+CREATE USER spring_user IDENTIFIED BY systemsss;
+GRANT ALL PRIVILEGES TO spring_user;
+
+
+
 --★値の変更
 SELECT *FROM employee;
 UPDATE employee SET emp_pass = '7777' WHERE emp_id = 1;
